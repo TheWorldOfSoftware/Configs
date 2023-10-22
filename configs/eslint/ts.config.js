@@ -1,4 +1,4 @@
-import { bannedImportPatterns, bannedImports } from "./js.config";
+import { bannedImportPatterns, bannedImports } from "./js.config.js";
 import typescript from "@typescript-eslint/eslint-plugin";
 import typescriptParser from "@typescript-eslint/parser";
 

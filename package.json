@@ -24,8 +24,7 @@
     "./configs/**/*"
   ],
   "exports": {
-    "./eslint": "./configs/eslint/eslint.config.js",
-    "./tsconfig": "./configs/typescript/tsconfig.json"
+    "./eslint": "./configs/eslint/eslint.config.js"
   },
   "engines": {
     "node": ">=18.17.0"

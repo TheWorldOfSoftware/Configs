@@ -34,6 +34,9 @@ permittedShortKeywords = [
   "x",
   "y",
   "z"
+],
+permittedUppercaseKeywords = [
+  "URL"
 ];
 
 export {
@@ -90,7 +93,7 @@ export default [
       "guard-for-in": "warn",
       "id-denylist": ["warn", ...bannedKeywords],
       "id-length": ["warn", { exceptions: permittedShortKeywords}],
-      "id-match": ["warn", "^[a-z]+([A-Z][a-z]+)*$"],
+      "id-match": ["warn", `^[a-z]+(${permittedUppercaseKeywords.join("|")}|([A-Z][a-z]+))*$`],
       "init-declarations": "warn",
       "logical-assignment-operators": "warn",
       "max-classes-per-file": "warn",
