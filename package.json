@@ -1,6 +1,6 @@
 {
   "name": "@opensoftware/openconfig",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Configuration files for use in all OpenSoftware projects, managed and maintained by the OpenSoftware corporation and community.",
   "keywords": [
     "OpenSoftware",
