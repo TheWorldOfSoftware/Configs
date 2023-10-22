@@ -1,0 +1,34 @@
+{
+  "name": "@opensoftware/openconfig",
+  "version": "1.0.0",
+  "description": "Configuration files for use in all OpenSoftware projects, managed and maintained by the OpenSoftware corporation and community.",
+  "keywords": [
+    "OpenSoftware",
+    "OpenSoftwareCorp",
+    "OSC",
+    "open source",
+    "global operations",
+    "config files",
+    "eslint",
+    "typescript"
+  ],
+  "license": "AGPL-3.0-or-later",
+  "author": "Scraps",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/OpenSoftwareCorp/OpenConfig.git"
+  },
+  "type": "module",
+  "files": [
+    "./configs/*"
+  ],
+  "exports": {
+    "./eslint": "./configs/eslint/eslint.config.js",
+    "./tsconfig": "./configs/typescript/tsconfig.json"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "private": false
+}
