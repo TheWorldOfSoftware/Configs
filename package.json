@@ -21,7 +21,7 @@
   },
   "type": "module",
   "files": [
-    "./configs/*"
+    "./configs/**/*"
   ],
   "exports": {
     "./eslint": "./configs/eslint/eslint.config.js",
