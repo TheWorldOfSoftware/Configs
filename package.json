@@ -24,7 +24,8 @@
     "./configs/**/*"
   ],
   "exports": {
-    "./eslint": "./configs/eslint/eslint.config.js"
+    "./eslint": "./configs/eslint/eslint.config.js",
+    "./prettier": "./configs/prettier/prettier.config.js"
   },
   "engines": {
     "node": ">=18.17.0"
