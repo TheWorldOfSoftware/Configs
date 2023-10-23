@@ -1,49 +1,40 @@
 import js from "@eslint/js";
 
 const bannedGlobals = [],
-bannedImportPatterns = [],
-bannedImports = [],
-bannedKeywords = [
-  "error",
-  "object",
-  "array",
-  "null",
-  "string",
-  "number",
-  "boolean",
-  "bigint",
-  "bigInt",
-  "callback",
-  "callBack",
-  "data",
-  "default",
-  "event"
-],
-bannedProperties = [],
-bannedSyntax = [
-  {
-    selector: "DebuggerStatement",
-    message: "Please use your IDE's built-in debugger instead."
-  },
-  {
-    selector: "ClassExpression",
-    message: "Class expressions are not allowed. Please use a named class instead."
-  }
-],
-permittedShortKeywords = [
-  "x",
-  "y",
-  "z"
-],
-permittedUppercaseKeywords = [
-  "URL"
-];
+  bannedImportPatterns = [],
+  bannedImports = [],
+  bannedKeywords = [
+    "error",
+    "object",
+    "array",
+    "null",
+    "string",
+    "number",
+    "boolean",
+    "bigint",
+    "bigInt",
+    "callback",
+    "callBack",
+    "data",
+    "default",
+    "event"
+  ],
+  bannedProperties = [],
+  bannedSyntax = [
+    {
+      selector: "DebuggerStatement",
+      message: "Please use your IDE's built-in debugger instead."
+    },
+    {
+      selector: "ClassExpression",
+      message:
+        "Class expressions are not allowed. Please use a named class instead."
+    }
+  ],
+  permittedShortKeywords = ["x", "y", "z"],
+  permittedUppercaseKeywords = ["URL"];
 
-export {
-  bannedImportPatterns,
-  bannedImports,
-  bannedKeywords
-};
+export { bannedImportPatterns, bannedImports, bannedKeywords };
 
 export default [
   js.configs.recommended,
@@ -92,8 +83,11 @@ export default [
       "grouped-accessor-pairs": "warn",
       "guard-for-in": "warn",
       "id-denylist": ["warn", ...bannedKeywords],
-      "id-length": ["warn", { exceptions: permittedShortKeywords}],
-      "id-match": ["warn", `^[a-z]+(${permittedUppercaseKeywords.join("|")}|([A-Z][a-z]+))*$`],
+      "id-length": ["warn", { exceptions: permittedShortKeywords }],
+      "id-match": [
+        "warn",
+        `^[a-z]+(${permittedUppercaseKeywords.join("|")}|([A-Z][a-z]+))*$`
+      ],
       "init-declarations": "warn",
       "logical-assignment-operators": "warn",
       "max-classes-per-file": "warn",
@@ -148,9 +142,15 @@ export default [
       "no-param-reassign": "warn",
       "no-plusplus": "warn",
       "no-proto": "warn",
-      "no-restricted-exports": ["warn", { restrictedNamedExports: bannedKeywords }],
+      "no-restricted-exports": [
+        "warn",
+        { restrictedNamedExports: bannedKeywords }
+      ],
       "no-restricted-globals": ["warn", ...bannedGlobals],
-      "no-restricted-imports": ["warn", { paths: bannedImports, patterns: bannedImportPatterns }],
+      "no-restricted-imports": [
+        "warn",
+        { paths: bannedImports, patterns: bannedImportPatterns }
+      ],
       "no-restricted-properties": ["warn", ...bannedProperties],
       "no-restricted-syntax": ["warn", ...bannedSyntax],
       "no-script-url": "warn",
@@ -195,7 +195,11 @@ export default [
       "require-await": "warn",
       "require-unicode-regexp": "warn",
       "sort-imports": "warn",
-      "sort-keys": ["warn", "asc", { allowLineSeparatedGroups: true, minKeys: 3 }],
+      "sort-keys": [
+        "warn",
+        "asc",
+        { allowLineSeparatedGroups: true, minKeys: 3 }
+      ],
       "sort-vars": "warn",
       "spaced-comment": "warn",
       strict: "warn",

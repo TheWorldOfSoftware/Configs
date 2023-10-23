@@ -3,93 +3,97 @@ import typescript from "@typescript-eslint/eslint-plugin";
 import typescriptParser from "@typescript-eslint/parser";
 
 const memberOrdering = {
-  default: {
-    order: "alphabetically"
+    default: {
+      order: "alphabetically"
+    },
+
+    classes: {
+      memberTypes: [
+        // Fields
+        ["private-static-field", "private-static-get", "private-static-set"],
+        ["#private-static-field", "#private-static-get", "#private-static-set"],
+        [
+          "protected-static-field",
+          "protected-static-get",
+          "protected-static-set"
+        ],
+        ["public-static-field", "public-static-get", "public-static-set"],
+
+        // Static initialization
+        "static-initialization",
+
+        // Index signature
+        "signature",
+        "call-signature",
+
+        // Constructors"
+        "constructor",
+
+        // Methods
+        "private-static-method",
+        "#private-static-method",
+        "protected-static-method",
+        "public-static-method",
+        "private-method",
+        "#private-method",
+        "protected-method",
+        "public-method",
+        "abstract-method"
+      ]
+    },
+    interfaces: {
+      memberTypes: [
+        "static-field",
+        "instance-field",
+        "signature",
+        "constructor",
+        "static-method",
+        "instance-method"
+      ]
+    },
+    typeDefinitions: {
+      memberTypes: [
+        "private-static-field",
+        "#private-static-field",
+        "protected-static-field",
+        "public-static-field",
+        "private-instance-field",
+        "#private-instance-field",
+        "protected-instance-field",
+        "public-instance-field",
+        "signature",
+        "constructor",
+        "private-static-method",
+        "#private-static-method",
+        "protected-static-method",
+        "public-static-method",
+        "private-instance-method",
+        "#private-instance-method",
+        "protected-instance-method",
+        "public-instance-method"
+      ]
+    }
   },
+  namingConvention = [
+    {
+      selector: "default",
 
-  classes: {
-    memberTypes: [
-      // Fields
-      ["private-static-field", "private-static-get", "private-static-set"],
-      ["#private-static-field", "#private-static-get", "#private-static-set"],
-      ["protected-static-field", "protected-static-get", "protected-static-set"],
-      ["public-static-field", "public-static-get", "public-static-set"],
-      
-      // Static initialization
-      "static-initialization",
+      format: ["camelCase"],
+      leadingUnderscore: "forbid",
+      trailingUnderscore: "forbid"
+    },
+    {
+      modifiers: ["private"],
+      selector: "property",
 
-      // Index signature
-      "signature",
-      "call-signature",
+      leadingUnderscore: "allow"
+    },
+    {
+      selector: "variableLike",
 
-      // Constructors"
-      "constructor",
-
-      // Methods
-      "private-static-method",
-      "#private-static-method",
-      "protected-static-method",
-      "public-static-method",
-      "private-method",
-      "#private-method",
-      "protected-method",
-      "public-method",
-      "abstract-method"
-    ]
-  },
-  interfaces: {
-    memberTypes: [
-      "static-field",
-      "instance-field",
-      "signature",
-      "constructor",
-      "static-method",
-      "instance-method"
-    ]
-  },
-  typeDefinitions: {
-    memberTypes: [
-      "private-static-field",
-      "#private-static-field",
-      "protected-static-field",
-      "public-static-field",
-      "private-instance-field",
-      "#private-instance-field",
-      "protected-instance-field",
-      "public-instance-field",
-      "signature",
-      "constructor",
-      "private-static-method",
-      "#private-static-method",
-      "protected-static-method",
-      "public-static-method",
-      "private-instance-method",
-      "#private-instance-method",
-      "protected-instance-method",
-      "public-instance-method"
-    ]
-  }
-},
-namingConvention = [
-  {
-    selector: "default",
-
-    format: ["camelCase"],
-    leadingUnderscore: "forbid",
-    trailingUnderscore: "forbid"
-  },
-  {
-    modifiers: ["private"],
-    selector: "property",
-
-    leadingUnderscore: "allow"
-  },
-  {
-    selector: "variableLike",
-
-    leadingUnderscore: "allow"
-  }
-];
+      leadingUnderscore: "allow"
+    }
+  ];
 
 export default [
   typescript.configs["strict-type-checked"],
@@ -149,7 +153,10 @@ export default [
       "@typescript-eslint/no-extra-semi": "error",
       "@typescript-eslint/no-loop-func": "warn",
       "@typescript-eslint/no-magic-numbers": "warn",
-      "@typescript-eslint/no-restricted-imports": ["warn", { paths: bannedImports, patterns: bannedImportPatterns }],
+      "@typescript-eslint/no-restricted-imports": [
+        "warn",
+        { paths: bannedImports, patterns: bannedImportPatterns }
+      ],
       "@typescript-eslint/no-shadow": "warn",
       "@typescript-eslint/no-unused-expressions": "warn",
       "@typescript-eslint/no-use-before-define": "error",
