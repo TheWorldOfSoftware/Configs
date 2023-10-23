@@ -30,5 +30,13 @@
   "engines": {
     "node": ">=18.17.0"
   },
-  "private": false
+  "private": false,
+  "peerDependencies": {
+    "typescript": "^4.9.5"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  }
 }

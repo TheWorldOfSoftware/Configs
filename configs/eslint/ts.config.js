@@ -42,36 +42,10 @@ const memberOrdering = {
       ]
     },
     interfaces: {
-      memberTypes: [
-        "static-field",
-        "instance-field",
-        "signature",
-        "constructor",
-        "static-method",
-        "instance-method"
-      ]
+      memberTypes: ["field", "signature", "constructor", "method"]
     },
-    typeDefinitions: {
-      memberTypes: [
-        "private-static-field",
-        "#private-static-field",
-        "protected-static-field",
-        "public-static-field",
-        "private-instance-field",
-        "#private-instance-field",
-        "protected-instance-field",
-        "public-instance-field",
-        "signature",
-        "constructor",
-        "private-static-method",
-        "#private-static-method",
-        "protected-static-method",
-        "public-static-method",
-        "private-instance-method",
-        "#private-instance-method",
-        "protected-instance-method",
-        "public-instance-method"
-      ]
+    typeLiterals: {
+      memberTypes: ["field", "signature", "constructor", "method"]
     }
   },
   namingConvention = [
@@ -86,21 +60,43 @@ const memberOrdering = {
       modifiers: ["private"],
       selector: "property",
 
+      format: ["camelCase"],
       leadingUnderscore: "allow"
     },
     {
       selector: "variableLike",
 
+      format: ["camelCase"],
       leadingUnderscore: "allow"
     }
   ];
 
 export default [
-  typescript.configs["strict-type-checked"],
-  typescript.configs["stylistic-type-checked"],
   {
+    files: ["*.ts", "*.tsx"],
     languageOptions: {
-      parser: typescriptParser
+      parser: typescriptParser,
+      parserOptions: {
+        project: "tsconfig.json"
+      }
+    },
+    plugins: {
+      "@typescript-eslint": typescript
+    },
+    rules: {
+      ...typescript.configs.base.rules,
+      ...typescript.configs["eslint-recommended"].rules,
+      ...typescript.configs["strict-type-checked"].rules,
+      ...typescript.configs["stylistic-type-checked"].rules
+    }
+  },
+  {
+    files: ["*.ts", "*.tsx"],
+    languageOptions: {
+      parser: typescriptParser,
+      parserOptions: {
+        project: "tsconfig.json"
+      }
     },
     plugins: {
       "@typescript-eslint": typescript

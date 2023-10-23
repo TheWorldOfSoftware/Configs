@@ -39,6 +39,7 @@ export { bannedImportPatterns, bannedImports, bannedKeywords };
 export default [
   js.configs.recommended,
   {
+    files: ["*.js", "*.jsx"],
     linterOptions: {
       noInlineConfig: true,
       reportUnusedDisableDirectives: true
@@ -174,7 +175,7 @@ export default [
       "no-void": ["warn", { allowAsStatement: true }],
       "no-warning-comments": "warn",
       "object-shorthand": "warn",
-      "one-var": "warn",
+      "one-var": ["warn", { initialized: "never", uninitialized: "always" }],
       "one-var-declaration-per-line": "warn",
       "operator-assignment": "warn",
       "prefer-arrow-callback": "warn",
