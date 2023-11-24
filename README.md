@@ -1,3 +1,3 @@
 # OpenConfig
 
-Configuration files for use in all OpenSoftware projects, managed and maintained by the OpenSoftware corporation and community.
+Tooling configuration files, managed and maintained by the World of Software corporation and community.

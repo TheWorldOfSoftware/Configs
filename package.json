@@ -1,10 +1,9 @@
 {
-  "name": "@opensoftware/openconfig",
+  "name": "@worldofsoftware/openconfig",
   "version": "1.0.2",
-  "description": "Configuration files for use in all OpenSoftware projects, managed and maintained by the OpenSoftware corporation and community.",
+  "description": "Configuration files for use in all OpenSoftware projects, managed and maintained by the World of Software corporation and community.",
   "keywords": [
-    "OpenSoftware",
-    "OpenSoftwareCorp",
+    "WorldOfSoftware",
     "OSC",
     "open source",
     "global operations",
@@ -17,7 +16,7 @@
   "homepage": "",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/OpenSoftwareCorp/OpenConfig.git"
+    "url": "git+ssh://git@github.com/TheWorldOfSoftware/OpenConfig.git"
   },
   "type": "module",
   "files": [
