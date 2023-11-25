@@ -24,9 +24,9 @@
   },
   "type": "module",
   "files": [
-    "./eslint/eslint.config.js",
-    "./prettier/prettier.config.js",
-    "./typescript/tsconfig.json"
+    "./configs/eslint/eslint.config.js",
+    "./configs/prettier/prettier.config.js",
+    "./configs/typescript/tsconfig.json"
   ],
   "exports": {
     "./eslint": "./configs/eslint/eslint.config.js",
