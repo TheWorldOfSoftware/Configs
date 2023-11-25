@@ -1,7 +1,6 @@
 import js, { bannedKeywords } from "./js.config.js";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
-import ts from "./ts.config.js";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 const permittedKeywords = ["default"];
@@ -23,7 +22,7 @@ const config = [
   }
 ];
 
-const typescript = await import("typescript");
+const [typescript, ts] = await Promise.all([import("typescript"), import("./ts.config.js")]);
 if (typescript) {
   config.push(...ts);
 }
