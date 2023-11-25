@@ -22,7 +22,10 @@ const config = [
   }
 ];
 
-const [typescript, ts] = await Promise.all([import("typescript"), import("./ts.config.js")]);
+const [typescript, ts] = await Promise.all([
+  import("typescript"),
+  import("./ts.config.js")
+]);
 if (typescript.default) {
   config.push(...ts.default);
 }
