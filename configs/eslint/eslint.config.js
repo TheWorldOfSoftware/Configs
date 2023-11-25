@@ -23,8 +23,8 @@ const config = [
 ];
 
 const [typescript, ts] = await Promise.all([import("typescript"), import("./ts.config.js")]);
-if (typescript) {
-  config.push(...ts);
+if (typescript.default) {
+  config.push(...ts.default);
 }
 
 export default config;
