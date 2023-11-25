@@ -1,15 +1,19 @@
 {
-  "name": "@worldofsoftware/openconfig",
+  "name": "@worldofsoftware/configs",
   "version": "1.0.2",
   "description": "Configuration files for use in all World of Software projects, managed and maintained by the World of Software corporation and community.",
   "keywords": [
     "WorldOfSoftware",
     "WOS",
     "open source",
+    "community",
+    "open source community",
     "global operations",
+    "config",
     "config files",
     "eslint",
-    "typescript"
+    "typescript",
+    "prettier"
   ],
   "license": "AGPL-3.0-or-later",
   "author": "Scraps",
@@ -20,7 +24,9 @@
   },
   "type": "module",
   "files": [
-    "./configs/**/*"
+    "./eslint/eslint.config.js",
+    "./prettier/prettier.config.js",
+    "./typescript/tsconfig.json"
   ],
   "exports": {
     "./eslint": "./configs/eslint/eslint.config.js",
