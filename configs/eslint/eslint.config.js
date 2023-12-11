@@ -6,7 +6,7 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 const permittedKeywords = ["default"];
 
 const config = [
-  ...js,
+  js,
   {
     files: [
       path.relative(path.dirname("."), path.resolve(dirname, "./ts.config.js"))
@@ -23,11 +23,11 @@ const config = [
 ];
 
 const [typescript, ts] = await Promise.all([
-  import("typescript"),
-  import("./ts.config.js")
+  await import("typescript"),
+  await import("./ts.config.js")
 ]);
 if (typescript.default) {
-  config.push(...ts.default);
+  config.push(ts.default);
 }
 
 export default config;
