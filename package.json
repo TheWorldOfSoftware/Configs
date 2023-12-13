@@ -36,6 +36,9 @@
     "node": ">=18.17.0"
   },
   "private": false,
+  "scripts": {
+    "lint": "eslint . --fix"
+  },
   "peerDependencies": {
     "typescript": "^4.9.5"
   },

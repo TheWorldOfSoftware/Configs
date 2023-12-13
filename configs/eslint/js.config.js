@@ -37,14 +37,13 @@ const permittedUppercaseKeywords = ["URL"];
 export { bannedImportPatterns, bannedImports, bannedKeywords };
 
 export default {
-  files: ["**/*.js", "**/*.jsx", "**/*.cjs", "**/*.mjs"],
   ignores: ["./dist"],
-  ...js.configs.recommended,
   linterOptions: {
     noInlineConfig: true,
     reportUnusedDisableDirectives: true
   },
   rules: {
+    ...js.configs.recommended.rules,
     // Possible Problems
     "array-callback-return": "error",
     "default-param-last": "error",

@@ -80,7 +80,7 @@ export default {
 
     parser: typescriptParser,
     parserOptions: {
-      project: "tsconfig.json"
+      project: ["./tsconfig.json", "./packages/*/tsconfig.json"]
     }
   },
   plugins: {
@@ -90,6 +90,7 @@ export default {
     ...typescript.configs["eslint-recommended"].overrides.rules,
     ...typescript.configs["strict-type-checked"].rules,
     ...typescript.configs["stylistic-type-checked"].rules,
+
     // Supported Rules
     "@typescript-eslint/consistent-type-exports": "error",
     "@typescript-eslint/consistent-type-imports": "error",
@@ -119,12 +120,10 @@ export default {
     "class-methods-use-this": "off",
     "default-param-last": "off",
     "init-declarations": "off",
-    "no-dupe-class-members": "off",
     "no-extra-semi": "off",
     "no-invalid-this": "off",
     "no-loop-func": "off",
     "no-magic-numbers": "off",
-    "no-redeclare": "off",
     "no-restricted-imports": "off",
     "no-shadow": "off",
     "no-unused-expressions": "off",
