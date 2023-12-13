@@ -17,7 +17,6 @@
     "module": "NodeNext",
     "resolveJsonModule": true,
     // Emit
-    "noEmit": true,
     "noEmitOnError": true,
     "removeComments": true,
     "sourceMap": true,
