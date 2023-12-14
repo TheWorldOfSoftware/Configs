@@ -1,5 +1,6 @@
 import js, { bannedKeywords } from "./js.config.js";
 import { fileURLToPath } from "node:url";
+import { info } from "node:console";
 import path from "node:path";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -23,10 +24,11 @@ const config = [
 ];
 
 const [typescript, ts] = await Promise.all([
-  await import("typescript"),
+  await import("@typescript-eslint/eslint-plugin"),
   await import("./ts.config.js")
 ]);
 if (typescript.default) {
+  info("Applying TypeScript-ESLint configuration.");
   config.push(ts.default);
 }
 
