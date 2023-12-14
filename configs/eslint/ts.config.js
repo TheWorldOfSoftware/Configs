@@ -1,4 +1,4 @@
-import { bannedImportPatterns, bannedImports } from "./js.config.js";
+// Import { bannedImportPatterns, bannedImports } from "./js.config.js";
 import typescript from "@typescript-eslint/eslint-plugin";
 import typescriptParser from "@typescript-eslint/parser";
 
@@ -80,7 +80,7 @@ export default {
 
     parser: typescriptParser,
     parserOptions: {
-      project: ["./tsconfig.json", "./packages/*/tsconfig.json"]
+      project: true
     }
   },
   plugins: {
@@ -137,10 +137,13 @@ export default {
     "@typescript-eslint/no-extra-semi": "error",
     "@typescript-eslint/no-loop-func": "warn",
     "@typescript-eslint/no-magic-numbers": "warn",
-    "@typescript-eslint/no-restricted-imports": [
-      "warn",
-      { paths: bannedImports, patterns: bannedImportPatterns }
-    ],
+    // Temporarily disabled as rule currently breaks with error "TypeError: rules.ImportDeclaration is not a function"
+    /*
+     * "@typescript-eslint/no-restricted-imports": [
+     *   "warn",
+     *   { paths: bannedImports, patterns: bannedImportPatterns }
+     * ],
+     */
     "@typescript-eslint/no-shadow": "warn",
     "@typescript-eslint/no-unused-expressions": "warn",
     "@typescript-eslint/no-use-before-define": "error",

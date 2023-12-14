@@ -39,8 +39,11 @@
   "scripts": {
     "lint": "eslint . --fix"
   },
+  "devDependencies": {
+    "eslint": "^8.55.0"
+  },
   "peerDependencies": {
-    "typescript": "^4.9.5"
+    "typescript": "^5.3.3"
   },
   "peerDependenciesMeta": {
     "typescript": {
