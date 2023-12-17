@@ -48,7 +48,7 @@ const memberOrdering = {
     memberTypes: ["field", "signature", "constructor", "method"]
   }
 };
-const namingConvention = [
+export const namingConvention = [
   {
     selector: "default",
 
@@ -64,6 +64,12 @@ const namingConvention = [
     leadingUnderscore: "allow"
   },
   {
+    selector: "typeLike",
+
+    format: ["StrictPascalCase"],
+    leadingUnderscore: "forbid"
+  },
+  {
     selector: "variableLike",
 
     format: ["camelCase"],
@@ -74,6 +80,7 @@ const namingConvention = [
 export default {
   files: ["**/*.ts", "**/*.tsx"],
   ignores: ["./dist"],
+
   languageOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
@@ -148,6 +155,12 @@ export default {
     "@typescript-eslint/no-unused-expressions": "warn",
     "@typescript-eslint/no-use-before-define": "error",
     "@typescript-eslint/prefer-destructuring": "warn",
-    "@typescript-eslint/return-await": "error"
+    "@typescript-eslint/return-await": "error",
+
+    // Stylistic Rules
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      { allowSingleExtends: true }
+    ]
   }
 };

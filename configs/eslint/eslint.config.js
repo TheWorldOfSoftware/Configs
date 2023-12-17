@@ -32,4 +32,6 @@ if (typescript.default) {
   config.push(ts.default);
 }
 
+export * as jsOverrides from "./js.config.js";
+export * as tsOverrides from "./ts.config.js";
 export default config;

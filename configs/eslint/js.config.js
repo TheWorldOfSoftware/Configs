@@ -1,9 +1,10 @@
+import globals from "globals";
 import js from "@eslint/js";
 
 const bannedGlobals = [];
 const bannedImportPatterns = [];
 const bannedImports = [];
-const bannedKeywords = [
+export const bannedKeywords = [
   "error",
   "object",
   "array",
@@ -32,12 +33,14 @@ const bannedSyntax = [
   }
 ];
 const permittedShortKeywords = ["x", "y", "z"];
-const permittedUppercaseKeywords = ["URL"];
-
-export { bannedImportPatterns, bannedImports, bannedKeywords };
-
 export default {
   ignores: ["./dist"],
+
+  languageOptions: {
+    globals: {
+      ...globals.nodeBuiltin
+    }
+  },
   linterOptions: {
     noInlineConfig: true,
     reportUnusedDisableDirectives: true
@@ -84,10 +87,6 @@ export default {
     "guard-for-in": "warn",
     "id-denylist": ["warn", ...bannedKeywords],
     "id-length": ["warn", { exceptions: permittedShortKeywords }],
-    "id-match": [
-      "warn",
-      `^[a-z]+(${permittedUppercaseKeywords.join("|")}|([A-Z][a-z]+))*$`
-    ],
     "init-declarations": "warn",
     "logical-assignment-operators": "warn",
     "max-classes-per-file": "warn",
