@@ -66,20 +66,24 @@ export const namingConvention = [
   {
     selector: "typeLike",
 
-    format: ["StrictPascalCase"],
-    leadingUnderscore: "forbid"
+    format: ["PascalCase"]
   },
   {
     selector: "variableLike",
 
     format: ["camelCase"],
     leadingUnderscore: "allow"
+  },
+  {
+    selector: "import",
+
+    format: ["camelCase", "PascalCase", "UPPER_CASE"]
   }
 ];
 
 export default {
   files: ["**/*.ts", "**/*.tsx"],
-  ignores: ["./dist"],
+  ignores: ["**/dist/**"],
 
   languageOptions: {
     ecmaVersion: "latest",

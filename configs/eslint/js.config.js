@@ -34,7 +34,7 @@ const bannedSyntax = [
 ];
 const permittedShortKeywords = ["x", "y", "z"];
 export default {
-  ignores: ["./dist"],
+  ignores: ["**/dist/**"],
 
   languageOptions: {
     globals: {
