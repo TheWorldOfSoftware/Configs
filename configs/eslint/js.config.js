@@ -4,6 +4,7 @@ import js from "@eslint/js";
 const bannedGlobals = [];
 const bannedImportPatterns = [];
 const bannedImports = [];
+
 export const bannedKeywords = [
   "error",
   "object",
@@ -20,6 +21,7 @@ export const bannedKeywords = [
   "default",
   "event"
 ];
+
 const bannedProperties = [];
 const bannedSyntax = [
   {
@@ -33,6 +35,7 @@ const bannedSyntax = [
   }
 ];
 const permittedShortKeywords = ["x", "y", "z"];
+
 export default {
   ignores: ["**/dist/**"],
 
