@@ -4,8 +4,7 @@ import js from "@eslint/js";
 const bannedGlobals = [];
 const bannedImportPatterns = [];
 const bannedImports = [];
-
-export const bannedKeywords = [
+const bannedKeywords = [
   "error",
   "object",
   "array",
@@ -18,10 +17,8 @@ export const bannedKeywords = [
   "callback",
   "callBack",
   "data",
-  "default",
   "event"
 ];
-
 const bannedProperties = [];
 const bannedSyntax = [
   {
