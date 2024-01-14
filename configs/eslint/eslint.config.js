@@ -1,13 +1,16 @@
 import { info } from "node:console";
 import js from "./js.config.js";
 import ts from "./ts.config.js";
+import importPlugin, {
+  importPluginTypescript
+} from "./plugins/import.config.js";
 
-const config = [js];
+const config = [js, importPlugin];
 
 const typescript = await import("@typescript-eslint/eslint-plugin");
 if (typescript.default) {
   info("Applying TypeScript-ESLint configuration.");
-  config.push(ts);
+  config.push(ts, importPluginTypescript);
 }
 
 export * as jsOverrides from "./js.config.js";
