@@ -7,8 +7,8 @@ import importPlugin, {
 
 const config = [js, importPlugin];
 
-const typescript = await import("@typescript-eslint/eslint-plugin");
-if (typescript.default) {
+const typescriptPlugin = await import("@typescript-eslint/eslint-plugin");
+if (typescriptPlugin.default) {
   info("Applying TypeScript-ESLint configuration.");
   config.push(ts, importPluginTypescript);
 }

@@ -1,5 +1,4 @@
-// Import { bannedImportPatterns, bannedImports } from "./js.config.js";
-import typescript from "@typescript-eslint/eslint-plugin";
+import typescriptPlugin from "@typescript-eslint/eslint-plugin";
 import typescriptParser from "@typescript-eslint/parser";
 
 const memberOrdering = {
@@ -95,12 +94,12 @@ export default {
     }
   },
   plugins: {
-    "@typescript-eslint": typescript
+    "@typescript-eslint": typescriptPlugin
   },
   rules: {
-    ...typescript.configs["eslint-recommended"].overrides.rules,
-    ...typescript.configs["strict-type-checked"].rules,
-    ...typescript.configs["stylistic-type-checked"].rules,
+    ...typescriptPlugin.configs["eslint-recommended"].overrides.rules,
+    ...typescriptPlugin.configs["strict-type-checked"].rules,
+    ...typescriptPlugin.configs["stylistic-type-checked"].rules,
 
     // Supported Rules
     "@typescript-eslint/consistent-type-exports": "error",
