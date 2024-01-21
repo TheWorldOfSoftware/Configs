@@ -1,49 +1,25 @@
 import importPlugin from "eslint-plugin-import";
-import typescriptParser from "@typescript-eslint/parser";
 
-const jsExtensions = [".js", ".cjs", ".mjs", ".jsx"];
-const tsExtensions = [".ts", ".cts", ".mts", ".tsx"];
+const extensions = [".js", ".cjs", ".mjs", ".jsx"];
 
-export const importPluginTypescript = {
+export default {
+  files: extensions.map(extension => `**/*${extension}`),
   ignores: ["**/dist/**"],
 
   languageOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-
-    parser: typescriptParser
-  },
-  plugins: {
-    import: importPlugin
-  },
-  settings: {
-    "import/extensions": tsExtensions,
-    "import/parsers": {
-      "@typescript-eslint/parser": tsExtensions
-    },
-    "import/resolver": {
-      typescript: true
+    parserOptions: {
+      ecmaVersion: "latest"
     }
   },
-  rules: {
-    ...importPlugin.configs.typescript.rules
-  }
-};
-
-export default {
-  ignores: ["**/dist/**"],
-
-  languageOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module"
-  },
   plugins: {
     import: importPlugin
   },
   settings: {
-    "import/extensions": jsExtensions,
+    "import/extensions": extensions,
     "import/parsers": {
-      espree: jsExtensions
+      espree: extensions
     },
     "import/resolver": {
       node: true

@@ -1,87 +1,89 @@
 import typescriptPlugin from "@typescript-eslint/eslint-plugin";
 import typescriptParser from "@typescript-eslint/parser";
 
+const extensions = [".ts", ".cts", ".mts", ".tsx"];
+
 const memberOrdering = {
-  default: {
-    order: "alphabetically"
+    default: {
+      order: "alphabetically"
+    },
+
+    classes: {
+      memberTypes: [
+        // Fields
+        ["private-static-field", "private-static-get", "private-static-set"],
+        ["#private-static-field", "#private-static-get", "#private-static-set"],
+        [
+          "protected-static-field",
+          "protected-static-get",
+          "protected-static-set"
+        ],
+        ["public-static-field", "public-static-get", "public-static-set"],
+
+        // Static initialization
+        "static-initialization",
+
+        // Index signature
+        "signature",
+        "call-signature",
+
+        // Constructors"
+        "constructor",
+
+        // Methods
+        "private-static-method",
+        "#private-static-method",
+        "protected-static-method",
+        "public-static-method",
+        "private-method",
+        "#private-method",
+        "protected-method",
+        "public-method",
+        "abstract-method"
+      ]
+    },
+    interfaces: {
+      memberTypes: ["field", "signature", "constructor", "method"]
+    },
+    typeLiterals: {
+      memberTypes: ["field", "signature", "constructor", "method"]
+    }
   },
+  namingConvention = [
+    {
+      selector: "default",
 
-  classes: {
-    memberTypes: [
-      // Fields
-      ["private-static-field", "private-static-get", "private-static-set"],
-      ["#private-static-field", "#private-static-get", "#private-static-set"],
-      [
-        "protected-static-field",
-        "protected-static-get",
-        "protected-static-set"
-      ],
-      ["public-static-field", "public-static-get", "public-static-set"],
+      format: ["camelCase"],
+      leadingUnderscore: "forbid",
+      trailingUnderscore: "forbid"
+    },
+    {
+      modifiers: ["private"],
+      selector: "property",
 
-      // Static initialization
-      "static-initialization",
+      format: ["camelCase"],
+      leadingUnderscore: "allow"
+    },
+    {
+      selector: "typeLike",
 
-      // Index signature
-      "signature",
-      "call-signature",
+      format: ["PascalCase"]
+    },
+    {
+      selector: "variableLike",
 
-      // Constructors"
-      "constructor",
+      format: ["camelCase"],
+      leadingUnderscore: "allow"
+    },
+    {
+      selector: "import",
 
-      // Methods
-      "private-static-method",
-      "#private-static-method",
-      "protected-static-method",
-      "public-static-method",
-      "private-method",
-      "#private-method",
-      "protected-method",
-      "public-method",
-      "abstract-method"
-    ]
-  },
-  interfaces: {
-    memberTypes: ["field", "signature", "constructor", "method"]
-  },
-  typeLiterals: {
-    memberTypes: ["field", "signature", "constructor", "method"]
-  }
-};
-export const namingConvention = [
-  {
-    selector: "default",
-
-    format: ["camelCase"],
-    leadingUnderscore: "forbid",
-    trailingUnderscore: "forbid"
-  },
-  {
-    modifiers: ["private"],
-    selector: "property",
-
-    format: ["camelCase"],
-    leadingUnderscore: "allow"
-  },
-  {
-    selector: "typeLike",
-
-    format: ["PascalCase"]
-  },
-  {
-    selector: "variableLike",
-
-    format: ["camelCase"],
-    leadingUnderscore: "allow"
-  },
-  {
-    selector: "import",
-
-    format: ["camelCase", "PascalCase", "UPPER_CASE"]
-  }
-];
+      format: ["camelCase", "PascalCase", "UPPER_CASE"]
+    }
+  ];
 
 export default {
-  files: ["**/*.ts", "**/*.tsx"],
+  files: extensions.map(extension => `**/*${extension}`),
   ignores: ["**/dist/**"],
 
   languageOptions: {

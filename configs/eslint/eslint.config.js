@@ -1,20 +1,17 @@
 import { info } from "node:console";
 import js from "./js.config.js";
-import ts from "./ts.config.js";
-import importPlugin, {
-  importPluginTypescript
-} from "./plugins/import.config.js";
+import importPlugin from "./plugins/import/js.import.config.js";
 
 const config = [js, importPlugin];
 
-const typescriptPlugin = await import("@typescript-eslint/eslint-plugin");
-if (typescriptPlugin.default) {
-  info("Applying TypeScript-ESLint configuration.");
-  config.push(ts, importPluginTypescript);
-}
-
-export * as jsOverrides from "./js.config.js";
-export * as tsOverrides from "./ts.config.js";
+try {
+  await import("typescript");
+  info("Applying TypeScript configurations.");
+  const [ts, importPluginTypescript] = Promise.all([
+    await import("./ts.config.js"),
+    await import("./plugins/import/ts.import.config.js")
+  ]);
+  config.push(ts.default, importPluginTypescript.default);
+} catch {}
 
 export default config;
-export { js, ts };
