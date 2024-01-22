@@ -10,9 +10,14 @@
     "open source community",
     "global operations",
     "config",
+    "configurations",
     "config files",
+    "configuration files",
     "eslint",
     "typescript",
+    "typescript-eslint",
+    "eslint-plugin-import",
+    "eslint import",
     "prettier"
   ],
   "license": "AGPL-3.0-or-later",
@@ -40,11 +45,15 @@
     "format": "prettier . --write",
     "lint": "eslint . --fix"
   },
+  "dependencies": {
+    "@eslint/js": "^8.56.0",
+    "eslint-plugin-import": "^2.29.1",
+    "globals": "^13.24.0"
+  },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.18.1",
-    "@typescript-eslint/parser": "^6.18.1",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1"
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint-import-resolver-typescript": "^3.6.1"
   },
   "peerDependencies": {
     "typescript": "^5.3.3"

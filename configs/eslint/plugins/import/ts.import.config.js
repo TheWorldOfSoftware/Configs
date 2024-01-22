@@ -1,6 +1,16 @@
+import importPlugin from "eslint-plugin-import";
 import typescriptParser from "@typescript-eslint/parser";
 
-const extensions = [".ts", ".cts", ".mts", ".tsx"];
+const extensions = [
+  ".js",
+  ".cjs",
+  ".mjs",
+  ".jsx",
+  ".ts",
+  ".cts",
+  ".mts",
+  ".tsx"
+];
 
 export default {
   files: extensions.map(extension => `**/*${extension}`),
@@ -24,9 +34,11 @@ export default {
       "@typescript-eslint/parser": extensions
     },
     "import/resolver": {
+      node: true,
       typescript: true
     }
   },
+
   rules: {
     ...importPlugin.configs.typescript.rules
   }

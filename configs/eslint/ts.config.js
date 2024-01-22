@@ -1,5 +1,5 @@
-import typescriptPlugin from "@typescript-eslint/eslint-plugin";
 import typescriptParser from "@typescript-eslint/parser";
+import typescriptPlugin from "@typescript-eslint/eslint-plugin";
 
 const extensions = [".ts", ".cts", ".mts", ".tsx"];
 

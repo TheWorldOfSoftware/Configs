@@ -9,6 +9,7 @@ export default {
   languageOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
+
     parserOptions: {
       ecmaVersion: "latest"
     }
@@ -25,6 +26,7 @@ export default {
       node: true
     }
   },
+
   rules: {
     ...importPlugin.configs.recommended.rules,
     // Helpful warnings
@@ -53,44 +55,44 @@ export default {
       {
         zones: [
           {
-            target: "src/*/**/*",
             from: "src/*",
-            message: "Do not access application files from logic!"
+            message: "Do not access application files from logic!",
+            target: "src/*/**/*"
           },
           {
-            target: "src/features/**/*",
             from: "src/routes/**/*",
-            message: "Do not access routes from feature functionality!"
+            message: "Do not access routes from feature functionality!",
+            target: "src/features/**/*"
           },
           {
-            target: "src/lib/**/*",
             from: "src/!(lib)/**/*",
-            message: "Lib files cannot access application logic!"
+            message: "Lib files cannot access application logic!",
+            target: "src/lib/**/*"
           },
           {
-            target: "src/models/**/*",
             from: [
               "src/features/**/*",
               "src/repositories/**/*",
               "src/routes/**/*"
             ],
-            message: "Do not access logic from a data model!"
+            message: "Do not access logic from a data model!",
+            target: "src/models/**/*"
           },
           {
-            target: "src/repositories/**/*",
             from: ["src/features/**/*", "src/routes/**/*"],
-            message: "Do not access logic from a repository!"
+            message: "Do not access logic from a repository!",
+            target: "src/repositories/**/*"
           },
           {
-            target: "src/routes/**/*",
             from: "src/repositories/**/*",
-            message: "Do not access repositories directly!"
+            message: "Do not access repositories directly!",
+            target: "src/routes/**/*"
           },
           {
-            target: "src/types/**/*",
-            from: "src/**/*",
             except: ["src/models/**/*", "src/types/**/*"],
-            message: "Do not access logic from type definitions!"
+            from: "src/**/*",
+            message: "Do not access logic from type definitions!",
+            target: "src/types/**/*"
           }
         ]
       }
