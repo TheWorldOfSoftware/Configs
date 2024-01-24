@@ -1,3 +1,4 @@
+import importConfig from "./js.import.config.js";
 import importPlugin from "eslint-plugin-import";
 import typescriptParser from "@typescript-eslint/parser";
 
@@ -40,6 +41,7 @@ export default {
   },
 
   rules: {
+    ...importConfig.rules,
     ...importPlugin.configs.typescript.rules
   }
 };
