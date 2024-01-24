@@ -16,7 +16,7 @@ export default [
     rules: {
       "import/no-internal-modules": [
         "error",
-        { allow: ["**/util/**", "plugins/**/*.config.js"] }
+        { allow: ["**/util/**", "*/*.config.js"] }
       ]
     }
   }
