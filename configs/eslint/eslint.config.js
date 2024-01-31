@@ -7,7 +7,7 @@ const config = [js, importPlugin];
 try {
   await import("typescript");
   info("Applying TypeScript configurations.");
-  const [ts, importPluginTypescript] = Promise.all([
+  const [ts, importPluginTypescript] = await Promise.all([
     await import("./ts.config.js"),
     await import("./import/ts.import.config.js")
   ]);
