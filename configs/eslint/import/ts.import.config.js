@@ -2,19 +2,10 @@ import importConfig from "./js.import.config.js";
 import importPlugin from "eslint-plugin-import";
 import typescriptParser from "@typescript-eslint/parser";
 
-const extensions = [
-  ".js",
-  ".cjs",
-  ".mjs",
-  ".jsx",
-  ".ts",
-  ".cts",
-  ".mts",
-  ".tsx"
-];
+const extensions = [".js", ".cjs", ".mjs", ".ts", ".cts", ".mts"];
 
 export default {
-  files: extensions.map(extension => `**/*${extension}`),
+  files: extensions.map(extension => `~/**/*${extension}`),
   ignores: ["**/dist/**"],
 
   languageOptions: {

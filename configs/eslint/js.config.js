@@ -1,7 +1,7 @@
 import globals from "globals";
 import js from "@eslint/js";
 
-const extensions = [".js", ".cjs", ".mjs", ".jsx"];
+const extensions = [".js", ".cjs", ".mjs"];
 
 const bannedGlobals = [];
 const bannedImportPatterns = [];
@@ -36,7 +36,7 @@ const bannedSyntax = [
 const permittedShortKeywords = ["x", "y", "z"];
 
 export default {
-  files: extensions.map(extension => `**/*${extension}`),
+  files: extensions.map(extension => `~/**/*${extension}`),
   ignores: ["**/dist/**"],
 
   languageOptions: {

@@ -1,7 +1,7 @@
 import typescriptParser from "@typescript-eslint/parser";
 import typescriptPlugin from "@typescript-eslint/eslint-plugin";
 
-const extensions = [".ts", ".cts", ".mts", ".tsx"];
+const extensions = [".ts", ".cts", ".mts"];
 
 const memberOrdering = {
   default: {
@@ -83,7 +83,7 @@ const namingConvention = [
 ];
 
 export default {
-  files: extensions.map(extension => `**/*${extension}`),
+  files: extensions.map(extension => `~/**/*${extension}`),
   ignores: ["**/dist/**"],
 
   languageOptions: {

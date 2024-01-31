@@ -1,9 +1,9 @@
 import importPlugin from "eslint-plugin-import";
 
-const extensions = [".js", ".cjs", ".mjs", ".jsx"];
+const extensions = [".js", ".cjs", ".mjs"];
 
 export default {
-  files: extensions.map(extension => `**/*${extension}`),
+  files: extensions.map(extension => `~/**/*${extension}`),
   ignores: ["**/dist/**"],
 
   languageOptions: {
