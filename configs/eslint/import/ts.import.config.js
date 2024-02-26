@@ -1,6 +1,6 @@
 import importConfig from "./js.import.config.js";
 import importPlugin from "eslint-plugin-import";
-import typescriptParser from "@typescript-eslint/parser";
+import tsESLint from "typescript-eslint";
 
 const extensions = [".js", ".cjs", ".mjs", ".ts", ".cts", ".mts"];
 
@@ -12,7 +12,7 @@ export default {
     ecmaVersion: "latest",
     sourceType: "module",
 
-    parser: typescriptParser,
+    parser: tsESLint.parser,
     parserOptions: {
       ecmaVersion: "latest"
     }
@@ -23,7 +23,7 @@ export default {
   settings: {
     "import/extensions": extensions,
     "import/parsers": {
-      "@typescript-eslint/parser": extensions
+      "@typescript-eslint/parser": tsESLint.parser
     },
     "import/resolver": {
       node: true,

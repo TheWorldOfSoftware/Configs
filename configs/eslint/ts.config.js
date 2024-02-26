@@ -1,5 +1,4 @@
-import typescriptParser from "@typescript-eslint/parser";
-import typescriptPlugin from "@typescript-eslint/eslint-plugin";
+import tsESLint from "typescript-eslint";
 
 const extensions = [".ts", ".cts", ".mts"];
 
@@ -90,18 +89,18 @@ export default {
     ecmaVersion: "latest",
     sourceType: "module",
 
-    parser: typescriptParser,
+    parser: tsESLint.parser,
     parserOptions: {
       project: true
     }
   },
   plugins: {
-    "@typescript-eslint": typescriptPlugin
+    "@typescript-eslint": tsESLint.plugin
   },
   rules: {
-    ...typescriptPlugin.configs["eslint-recommended"].overrides.rules,
-    ...typescriptPlugin.configs["strict-type-checked"].rules,
-    ...typescriptPlugin.configs["stylistic-type-checked"].rules,
+    ...tsESLint.configs.eslintRecommended.rules,
+    ...tsESLint.configs.strictTypeChecked.rules,
+    ...tsESLint.configs.stylisticTypeChecked.rules,
 
     // Supported Rules
     "@typescript-eslint/consistent-type-exports": "error",
@@ -119,6 +118,7 @@ export default {
     "@typescript-eslint/no-useless-empty-export": "error",
     "@typescript-eslint/parameter-properties": "error",
     "@typescript-eslint/prefer-enum-initializers": "error",
+    "@typescript-eslint/prefer-find": "error",
     "@typescript-eslint/prefer-readonly": "error",
     "@typescript-eslint/prefer-readonly-parameter-types": "error",
     "@typescript-eslint/prefer-regexp-exec": "error",
@@ -130,6 +130,7 @@ export default {
 
     // Disable ESLint JavaScript rules
     "class-methods-use-this": "off",
+    "consistent-return": "off",
     "default-param-last": "off",
     "init-declarations": "off",
     "no-extra-semi": "off",
@@ -144,6 +145,7 @@ export default {
 
     // Extension Rules
     "@typescript-eslint/class-methods-use-this": "warn",
+    "@typescript-eslint/consistent-return": "warn",
     "@typescript-eslint/default-param-last": "error",
     "@typescript-eslint/init-declarations": "warn",
     "@typescript-eslint/no-extra-semi": "error",

@@ -1,5 +1,5 @@
 import globals from "globals";
-import js from "@eslint/js";
+import jsESLint from "@eslint/js";
 
 const extensions = [".js", ".cjs", ".mjs"];
 
@@ -52,7 +52,7 @@ export default {
     reportUnusedDisableDirectives: true
   },
   rules: {
-    ...js.configs.recommended.rules,
+    ...jsESLint.configs.recommended.rules,
     // Possible Problems
     "array-callback-return": "error",
     "default-param-last": "error",
