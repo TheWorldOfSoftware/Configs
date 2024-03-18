@@ -1,7 +1,5 @@
 import tsESLint from "typescript-eslint";
 
-const extensions = [".ts", ".cts", ".mts"];
-
 const memberOrdering = {
   default: {
     order: "alphabetically"
@@ -102,7 +100,7 @@ const namingConvention = [
 ];
 
 export default {
-  files: extensions.map(extension => `~/**/*${extension}`),
+  files: ["~/**/*.ts", "~/**/*.cts", "~/**/*.mts"],
   ignores: ["**/dist/**"],
 
   languageOptions: {

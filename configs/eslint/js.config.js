@@ -1,8 +1,6 @@
 import globals from "globals";
 import jsESLint from "@eslint/js";
 
-const extensions = [".js", ".cjs", ".mjs"];
-
 const bannedGlobals = [];
 const bannedImportPatterns = [];
 const bannedImports = [];
@@ -36,7 +34,7 @@ const bannedSyntax = [
 const permittedShortKeywords = ["x", "y", "z"];
 
 export default {
-  files: extensions.map(extension => `~/**/*${extension}`),
+  files: ["~/**/*.js", "~/**/*.cjs", "~/**/*.mjs"],
   ignores: ["**/dist/**"],
 
   languageOptions: {
@@ -53,6 +51,7 @@ export default {
   },
   rules: {
     ...jsESLint.configs.recommended.rules,
+
     // Possible Problems
     "array-callback-return": "error",
     "default-param-last": "error",

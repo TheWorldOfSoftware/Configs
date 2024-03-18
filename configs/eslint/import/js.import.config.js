@@ -1,9 +1,7 @@
 import importPlugin from "eslint-plugin-import";
 
-const extensions = [".js", ".cjs", ".mjs"];
-
 export default {
-  files: extensions.map(extension => `~/**/*${extension}`),
+  files: ["~/**/*.js", "~/**/*.cjs", "~/**/*.mjs"],
   ignores: ["**/dist/**"],
 
   languageOptions: {
@@ -18,9 +16,9 @@ export default {
     import: importPlugin
   },
   settings: {
-    "import/extensions": extensions,
+    "import/extensions": [".js", ".cjs", ".mjs"],
     "import/parsers": {
-      espree: extensions
+      espree: [".js", ".cjs", ".mjs"]
     },
     "import/resolver": {
       node: true
@@ -29,6 +27,7 @@ export default {
 
   rules: {
     ...importPlugin.configs.recommended.rules,
+
     // Helpful warnings
     "import/no-deprecated": "warn",
     "import/no-empty-named-blocks": "warn",
