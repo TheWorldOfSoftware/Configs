@@ -169,13 +169,10 @@ export default {
     "@typescript-eslint/init-declarations": "warn",
     "@typescript-eslint/no-loop-func": "warn",
     "@typescript-eslint/no-magic-numbers": "warn",
-    // Temporarily disabled as rule currently breaks with error "TypeError: rules.ImportDeclaration is not a function"
-    /*
-     * "@typescript-eslint/no-restricted-imports": [
-     *   "warn",
-     *   { paths: bannedImports, patterns: bannedImportPatterns }
-     * ],
-     */
+    "@typescript-eslint/no-restricted-imports": [
+      "warn",
+      { paths: bannedImports, patterns: bannedImportPatterns }
+    ],
     "@typescript-eslint/no-shadow": "warn",
     "@typescript-eslint/no-unused-expressions": "warn",
     "@typescript-eslint/no-use-before-define": "error",
