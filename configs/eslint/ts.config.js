@@ -100,7 +100,6 @@ export default {
   rules: {
     ...tsESLint.configs.eslintRecommended.rules,
     ...tsESLint.configs.strictTypeChecked.rules,
-    ...tsESLint.configs.stylisticTypeChecked.rules,
 
     // Supported Rules
     "@typescript-eslint/consistent-type-exports": "error",
@@ -133,7 +132,6 @@ export default {
     "consistent-return": "off",
     "default-param-last": "off",
     "init-declarations": "off",
-    "no-extra-semi": "off",
     "no-invalid-this": "off",
     "no-loop-func": "off",
     "no-magic-numbers": "off",
@@ -148,7 +146,6 @@ export default {
     "@typescript-eslint/consistent-return": "warn",
     "@typescript-eslint/default-param-last": "error",
     "@typescript-eslint/init-declarations": "warn",
-    "@typescript-eslint/no-extra-semi": "error",
     "@typescript-eslint/no-loop-func": "warn",
     "@typescript-eslint/no-magic-numbers": "warn",
     // Temporarily disabled as rule currently breaks with error "TypeError: rules.ImportDeclaration is not a function"
