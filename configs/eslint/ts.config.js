@@ -9,15 +9,33 @@ const memberOrdering = {
 
   classes: {
     memberTypes: [
-      // Fields
-      ["private-static-field", "private-static-get", "private-static-set"],
+      // Static Fields
       ["#private-static-field", "#private-static-get", "#private-static-set"],
+      ["private-static-field", "private-static-get", "private-static-set"],
       [
         "protected-static-field",
         "protected-static-get",
         "protected-static-set"
       ],
       ["public-static-field", "public-static-get", "public-static-set"],
+
+      // Instance fields
+      [
+        "#private-instance-field",
+        "#private-instance-get",
+        "#private-instance-set"
+      ],
+      [
+        "private-instance-field",
+        "private-instance-get",
+        "private-instance-set"
+      ],
+      [
+        "protected-instance-field",
+        "protected-instance-get",
+        "protected-instance-set"
+      ],
+      ["public-instance-field", "public-instance-get", "public-instance-set"],
 
       // Static initialization
       "static-initialization",
@@ -29,16 +47,18 @@ const memberOrdering = {
       // Constructors"
       "constructor",
 
-      // Methods
-      "private-static-method",
+      // Static Methods
       "#private-static-method",
+      "private-static-method",
       "protected-static-method",
       "public-static-method",
-      "private-method",
-      "#private-method",
-      "protected-method",
-      "public-method",
-      "abstract-method"
+
+      // Instance Methods
+      "#private-instance-method",
+      "private-instance-method",
+      "protected-instance-method",
+      "public-instance-method",
+      "abstract-instance-method"
     ]
   },
   interfaces: {
