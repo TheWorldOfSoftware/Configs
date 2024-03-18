@@ -136,6 +136,7 @@ export default {
     "no-loop-func": "off",
     "no-magic-numbers": "off",
     "no-restricted-imports": "off",
+    "no-return-await": "off",
     "no-shadow": "off",
     "no-unused-expressions": "off",
     "no-use-before-define": "off",
