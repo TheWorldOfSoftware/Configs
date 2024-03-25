@@ -160,8 +160,6 @@ export default {
     "no-script-url": "warn",
     "no-sequences": "warn",
     "no-shadow": "warn",
-    // Disabled as ternary expressions should be permitted
-    "no-ternary": "off",
     "no-throw-literal": "warn",
     "no-undef-init": "warn",
     "no-undefined": "warn",
